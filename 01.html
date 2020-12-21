@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        Fruta:<input type="text" v-model="nombreFruta" @keyup.enter="agregarFruta" /><br />
+        Cantidad:
+        <input type="text" v-model="cantidadFruta" @keyup.enter="agregarFruta" /><br />
+        <button @click="agregarFruta()">Agregar</button>
+        <ul>
+            <li v-for="fruta of frutas">
+                {{fruta.nombre}} - {{fruta.cantidad}}
+                <input type="number" v-model.number="fruta.cantidad" />
+                <span v-if="fruta.cantidad === 0">- Sin stock</span>
+                <span v-if="fruta.cantidad >= 100">- Hay muchos</span>
+                <span v-if="fruta.cantidad <= 10">- Casi se agota</span>
+                <button @click="fruta.cantidad++">+</button>
+                <button @click="fruta.cantidad--">-</button>
+            </li>
+        </ul>
+        <h4>Total: {{sumarFrutas}}</h4>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="01.js"></script>
+</body>
+
+</html>
