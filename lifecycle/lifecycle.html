@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=3, initial-scale=1.0">
+    <title>Ciclo de vida de VUE</title>
+</head>
+<body>
+    <div class="container" id="app">
+        <p>{{saludo}} </p>
+        <button @click="saludo = 'SALUDO CAMBIADO'">Cambiar</button>
+        <button @click="destruir()">Destruir</button>
+    </div>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="lifecycle.js"></script>
+</html>
