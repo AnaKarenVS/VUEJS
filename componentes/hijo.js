@@ -6,5 +6,13 @@ Vue.component('hijo',{
     </div>`,
     props:[
         'numero'
-    ]
+    ],
+    data(){
+        return{
+            nombre:'Ana'
+        }
+    },
+    mounted(){
+        this.$emit('nombreHijo', this.nombre);
+    }
 })
